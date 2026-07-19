@@ -5,6 +5,7 @@ import { Credentials } from "@/components/site/Credentials";
 import { Projects } from "@/components/site/Projects";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
+import { ScrollReveal } from "@/components/site/ScrollReveal"; 
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -16,9 +17,18 @@ function Index() {
       <Navbar />
       <main>
         <Hero />
-        <Credentials />
-        <Projects />
-        <Contact />
+
+        <ScrollReveal>
+          <Credentials />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Projects />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Contact />
+        </ScrollReveal>
       </main>
       <Footer />
     </div>
