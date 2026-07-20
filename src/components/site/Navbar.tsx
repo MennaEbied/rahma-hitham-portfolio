@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X, FileText } from "lucide-react";
-import logoAsset from "@/assets/logo.svg.asset.json";
+import logo from "../../assets/logo.svg";
 
 const links = [
   { href: "#home", label: "Home" },
@@ -9,8 +9,7 @@ const links = [
   { href: "#contact", label: "Contact" },
 ];
 
-const CERTIFICATES_URL =
-  "https://drive.google.com/drive/folders/1N1_VUw5NNgCa3c15uTHOtV6rP7NR--g9";
+const CERTIFICATES_URL = "https://drive.google.com/drive/folders/1N1_VUw5NNgCa3c15uTHOtV6rP7NR--g9";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -32,7 +31,7 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <a href="#home" className="flex items-center gap-3 group">
           <img
-            src={logoAsset.url}
+            src={logo}
             alt="Rahma Hitham monogram"
             className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
           />
