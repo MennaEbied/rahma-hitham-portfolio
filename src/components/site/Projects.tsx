@@ -22,68 +22,6 @@ type Project = {
 
 const PROJECTS: Project[] = [
   // ==========================================
-  // RESIDENTIAL CATEGORY
-  // ==========================================
-  {
-    id: 1,
-    title: "Old Egyptian-Style House",
-    category: "Residential",
-    image: "/projects/residential/old-egyptian-house/cover.jpeg",
-    images: [
-      "/projects/residential/old-egyptian-house/cover.jpeg",
-      "/projects/residential/old-egyptian-house/view-2.jpeg",
-      "/projects/residential/old-egyptian-house/view-3.jpeg",
-      "/projects/residential/old-egyptian-house/view-4.jpeg",
-      "/projects/residential/old-egyptian-house/view-5.jpeg",
-      "/projects/residential/old-egyptian-house/view-6.jpeg",
-    ],
-    software: "Revit + Corona",
-    description:
-      "An interior design for a vintage Egyptian-style house ",
-  },
-  {
-    id: 5,
-    title: "Residential Building Façade",
-    category: "Residential",
-    image: "/projects/residential/residential-building/cover.jpeg",
-    images: [
-      "/projects/residential/residential-building/cover.jpeg",
-      "/projects/residential/residential-building/view-2.jpeg",
-    ],
-    software: "Revit + Lumion",
-    description:
-      "Façade study for a mid-rise residential block — balcony rhythm, shading fins, and a restrained material palette.",
-  },
-  {
-    id: 10,
-    title: "Premium Villa in Aswan — Hassan Fathy Style",
-    category: "Residential",
-    image: "/projects/residential/villa-in-aswan/cover.jpeg",
-    images: [
-      "/projects/residential/villa-in-aswan/cover.jpeg",
-      "/projects/residential/villa-in-aswan/view-2.jpeg",
-      "/projects/residential/villa-in-aswan/view-3.jpeg",
-      "/projects/residential/villa-in-aswan/view-4.jpeg",
-    ],
-    software: "Revit + Lumion",
-    description:
-      "A villa rooted in Hassan Fathy's language — mudbrick vaults, domes, and shaded courtyards tuned to Aswan's climate.",
-  },
-  {
-    id: 12,
-    title: "Garden Design",
-    category: "Residential",
-    image: "/projects/residential/garden-design/cover.png",
-    images: [
-      "/projects/residential/garden-design/cover.png",
-      "/projects/residential/garden-design/view-2.png",
-    ],
-    software: "Lumion + Photoshop",
-    description:
-      "A garden with layered planting and a shaded seating area — designed for relaxation and social gatherings.",
-  },
-
-  // ==========================================
   // COMMERCIAL CATEGORY
   // ==========================================
   {
@@ -211,6 +149,66 @@ const PROJECTS: Project[] = [
     software: "3Ds Max + Corona",
     description:
       "Neo-classical proportions with modern comfort — coffered ceilings, tailored millwork, and layered lighting.",
+  },
+  // ==========================================
+  // RESIDENTIAL CATEGORY
+  // ==========================================
+  {
+    id: 1,
+    title: "Old Egyptian-Style House",
+    category: "Residential",
+    image: "/projects/residential/old-egyptian-house/cover.jpeg",
+    images: [
+      "/projects/residential/old-egyptian-house/cover.jpeg",
+      "/projects/residential/old-egyptian-house/view-2.jpeg",
+      "/projects/residential/old-egyptian-house/view-3.jpeg",
+      "/projects/residential/old-egyptian-house/view-4.jpeg",
+      "/projects/residential/old-egyptian-house/view-5.jpeg",
+      "/projects/residential/old-egyptian-house/view-6.jpeg",
+    ],
+    software: "Revit + Corona",
+    description: "An interior design for a vintage Egyptian-style house ",
+  },
+  {
+    id: 12,
+    title: "Garden Design",
+    category: "Residential",
+    image: "/projects/residential/garden-design/cover.png",
+    images: [
+      "/projects/residential/garden-design/cover.png",
+      "/projects/residential/garden-design/view-2.png",
+    ],
+    software: "Lumion + Photoshop",
+    description:
+      "A garden with layered planting and a shaded seating area — designed for relaxation and social gatherings.",
+  },
+  {
+    id: 5,
+    title: "Residential Building Façade",
+    category: "Residential",
+    image: "/projects/residential/residential-building/cover.jpeg",
+    images: [
+      "/projects/residential/residential-building/cover.jpeg",
+      "/projects/residential/residential-building/view-2.jpeg",
+    ],
+    software: "Revit + Lumion",
+    description:
+      "Façade study for a mid-rise residential block — balcony rhythm, shading fins, and a restrained material palette.",
+  },
+  {
+    id: 10,
+    title: "Premium Villa in Aswan — Hassan Fathy Style",
+    category: "Residential",
+    image: "/projects/residential/villa-in-aswan/cover.jpeg",
+    images: [
+      "/projects/residential/villa-in-aswan/cover.jpeg",
+      "/projects/residential/villa-in-aswan/view-2.jpeg",
+      "/projects/residential/villa-in-aswan/view-3.jpeg",
+      "/projects/residential/villa-in-aswan/view-4.jpeg",
+    ],
+    software: "Revit + Lumion",
+    description:
+      "A villa rooted in Hassan Fathy's language — mudbrick vaults, domes, and shaded courtyards tuned to Aswan's climate.",
   },
 ];
 
