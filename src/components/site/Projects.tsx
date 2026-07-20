@@ -330,14 +330,14 @@ export function Projects() {
                   <>
                     <button
                       onClick={() => prevImage(active.images.length)}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-background/70 text-foreground shadow-md backdrop-blur opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-background"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 text-foreground shadow-md backdrop-blur opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-background z-10"
                       aria-label="Previous image"
                     >
                       <ChevronLeft className="h-5 w-5" />
                     </button>
                     <button
                       onClick={() => nextImage(active.images.length)}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-background/70 text-foreground shadow-md backdrop-blur opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-background"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 text-foreground shadow-md backdrop-blur opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-background z-10"
                       aria-label="Next image"
                     >
                       <ChevronRight className="h-5 w-5" />
