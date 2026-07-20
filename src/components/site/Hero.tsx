@@ -1,11 +1,39 @@
+import { useEffect, useState } from "react";
 import { Linkedin, Palette, ArrowDown, Leaf } from "lucide-react";
+
+// Reusable micro-component for smooth calculation/interpolation counting
+function CountUp({ end, duration = 3500 }: { end: number; duration?: number }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTime: number | null = null;
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = timestamp - startTime;
+
+      // Calculate linear progression mapped against duration limits
+      const progressRatio = Math.min(progress / duration, 1);
+
+      // Apply an out-quad easing curve to slow down the count at the end
+      const easeOutQuad = progressRatio * (2 - progressRatio);
+
+      setCount(Math.floor(easeOutQuad * end));
+
+      if (progress < duration) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [end, duration]);
+
+  return <>{count}</>;
+}
 
 export function Hero() {
   return (
-    <section
-      id="home"
-      className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28"
-    >
+    <section id="home" className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
       {/* Subtle background flourish */}
       <div
         aria-hidden
@@ -28,9 +56,9 @@ export function Hero() {
             <span className="italic text-accent">Hitham.</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Junior Architect & BIM Specialist bridging technical precision with
-            biophilic, sustainable design — from Egyptian heritage homes to
-            large-scale commercial concepts across the Gulf.
+            Junior Architect & BIM Specialist bridging technical precision with biophilic,
+            sustainable design — from Egyptian heritage homes to large-scale commercial concepts
+            across the Gulf.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -44,7 +72,7 @@ export function Hero() {
 
             <div className="flex items-center gap-2">
               <a
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/in/rahma-hitham"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
@@ -53,7 +81,7 @@ export function Hero() {
                 <Linkedin className="h-4 w-4" />
               </a>
               <a
-                href="https://www.behance.net/"
+                href="https://www.behance.net/rahmahitham"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Behance"
@@ -69,7 +97,9 @@ export function Hero() {
               <dt className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
                 Grade
               </dt>
-              <dd className="mt-1 font-serif text-2xl text-foreground">83%</dd>
+              <dd className="mt-1 font-serif text-2xl text-foreground">
+                <CountUp end={83} />%
+              </dd>
             </div>
             <div>
               <dt className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
@@ -81,7 +111,9 @@ export function Hero() {
               <dt className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
                 Projects
               </dt>
-              <dd className="mt-1 font-serif text-2xl text-foreground">12+</dd>
+              <dd className="mt-1 font-serif text-2xl text-foreground">
+                <CountUp end={12} />+
+              </dd>
             </div>
           </dl>
         </div>
@@ -90,25 +122,29 @@ export function Hero() {
         <div className="relative animate-fade-up [animation-delay:150ms]">
           <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-3xl border border-accent/40 lg:block" />
           <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_60px_-30px_rgba(30,41,59,0.35)]">
-            <div className="aspect-[4/5] w-full bg-gradient-to-br from-secondary via-background to-accent/10">
-              {/*
-                TODO: swap with actual render from projects/hero.jpg
-                <img src="/projects/hero.jpg" alt="Featured architectural render" className="h-full w-full object-cover" />
-              */}
-              <div className="flex h-full w-full items-center justify-center">
-                <div className="text-center">
-                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-accent/40 text-accent">
-                    <Leaf className="h-6 w-6" />
-                  </div>
-                  <p className="font-serif text-2xl italic text-foreground">
-                    Biophilic Hospital
-                  </p>
-                  <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
-                    Graduation Project · Graded Excellent
-                  </p>
-                </div>
+            <div className="relative aspect-[4/5] w-full bg-slate-100">
+              {/* Project Image Render */}
+              <img
+                src="/hero.png"
+                alt="Biophilic Hospital Graduation Project"
+                className="h-full w-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.src =
+                    "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80";
+                }}
+              />
+
+              {/* Text Badge Overlaid on the Top Left */}
+              <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent p-6 pt-7 text-white">
+                <p className="font-serif text-xl font-medium tracking-tight md:text-2xl">
+                  Biophilic Hospital
+                </p>
+                <p className="text-[10px] font-medium uppercase tracking-widest text-white/80 mt-0.5">
+                  Graduation Project · Graded Excellent
+                </p>
               </div>
             </div>
+
             <div className="flex items-center justify-between border-t border-border px-6 py-4">
               <span className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
                 Featured Render

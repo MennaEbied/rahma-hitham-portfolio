@@ -131,12 +131,7 @@ export function Credentials() {
               storytelling through architecture.
             </p>
             <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
-                <Music className="h-4 w-4" />
-              </div>
-              <p className="text-xs uppercase tracking-widest opacity-70">
-                University Orchestra · Pianist
-              </p>
+          
             </div>
           </Card>
         </div>
