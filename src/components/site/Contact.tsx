@@ -15,8 +15,8 @@ export function Contact() {
             Let's design <span className="italic">together</span>.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Open to full-time roles, freelance visualization, and BIM
-            collaborations across Egypt and the Gulf.
+            Open to full-time roles, freelance visualization, and BIM collaborations across Egypt
+            and the Gulf.
           </p>
         </div>
 
@@ -24,6 +24,23 @@ export function Contact() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
+
+              // Extract the current form values
+              const formData = new FormData(e.currentTarget);
+              const name = formData.get("name") as string;
+              const email = formData.get("email") as string;
+              const message = formData.get("message") as string;
+
+              // Construct the mailto link parameters
+              const targetEmail = "rahmahitham91@gmail.com";
+              const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+              const body = encodeURIComponent(
+                `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+              );
+
+              // Trigger the native mail client redirection
+              window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+
               setSent(true);
               setTimeout(() => setSent(false), 3000);
             }}
@@ -31,12 +48,7 @@ export function Contact() {
           >
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
               <Field label="Name" name="name" placeholder="Your name" />
-              <Field
-                label="Email"
-                name="email"
-                type="email"
-                placeholder="you@studio.com"
-              />
+              <Field label="Email" name="email" type="email" placeholder="you@studio.com" />
             </div>
             <div className="mt-5">
               <label className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
@@ -45,6 +57,7 @@ export function Contact() {
               <textarea
                 required
                 rows={6}
+                name="message" // Added name attribute to collect the value on submit
                 placeholder="Tell me about your project…"
                 className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-accent"
               />
@@ -63,9 +76,7 @@ export function Contact() {
               Contact Details
             </p>
             <h3 className="mt-3 font-serif text-2xl">Rahma Hitham</h3>
-            <p className="mt-1 text-sm opacity-70">
-              Architect & BIM Specialist
-            </p>
+            <p className="mt-1 text-sm opacity-70">Architect & BIM Specialist</p>
 
             <ul className="mt-8 space-y-5">
               <Detail
@@ -141,9 +152,7 @@ function Detail({
         {icon}
       </div>
       <div className="min-w-0">
-        <p className="text-[10px] font-medium uppercase tracking-widest opacity-60">
-          {label}
-        </p>
+        <p className="text-[10px] font-medium uppercase tracking-widest opacity-60">{label}</p>
         <p className="mt-1 break-words text-sm">{value}</p>
       </div>
     </div>
